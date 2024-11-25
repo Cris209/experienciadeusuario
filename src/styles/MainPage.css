@@ -1,0 +1,165 @@
+/* Contenedor principal */
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor de las cartas */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las cartas se desplacen hacia abajo cuando no caben */
+  gap: 20px; /* Espaciado entre las cartas */
+  justify-content: center; /* Centra las cartas horizontalmente */
+}
+
+/* Diseño de cada carta */
+.card {
+  background-color: #fff3e0;
+  border: 1px solid #ffcc80;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  flex: 0 0 auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Imagen dentro de la carta */
+.card-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Título de la carta */
+.card-title {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #ff7043;
+  font-weight: bold;
+}
+
+/* Textarea para los comentarios */
+.card-textarea {
+  margin-top: 10px;
+  width: 100%;
+  height: 60px;
+  font-size: 14px;
+  padding: 5px;
+  border: 1px solid #ffcc80;
+  border-radius: 4px;
+  resize: none;
+}
+
+/* Input para la calificación */
+.card-input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ffcc80;
+  border-radius: 4px;
+}
+
+/* Botón para enviar comentarios */
+.card-button {
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #ff5722;
+}
+
+/* Contenedor de comentarios */
+.comments {
+  margin-top: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.comments h4 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.comments p {
+  font-size: 12px;
+  margin: 3px 0;
+}
+
+/* Contenedor del encabezado */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa; /* Fondo claro */
+  border-bottom: 2px solid #ddd; /* Línea inferior */
+  width: 1200px;
+}
+
+/* Estilo del título de la página */
+.page-title {
+  margin: 0;
+  font-size: 1.8rem;
+  text-align: left;
+  flex: 1;
+  padding-right: 15px;
+}
+
+/* Estilo del botón de cerrar sesión */
+.logout-button {
+  background-color: #d9534f; /* Rojo */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c9302c; /* Rojo oscuro al pasar el mouse */
+}
+
+/* Contenedor de la barra de búsqueda */
+.search-bar {
+  margin: 20px 0;
+  text-align: center;
+  width: 1000px;
+}
+
+/* Campo de entrada de búsqueda */
+.search-input {
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color:#ffcc80;
+}
+
+/* Ícono de búsqueda */
+.search-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}

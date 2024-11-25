@@ -1,0 +1,118 @@
+:root {
+  --background-color: #fdf6f0; /* Fondo beige claro */
+  --primary-gradient: linear-gradient(135deg, #ff9a8b, #ff6a88); /* Gradiente */
+  --accent-color: #ff8552; /* Naranja pastel */
+  --text-color: #4a4a4a; /* Texto gris oscuro */
+  --card-background: #ffffff; /* Fondo blanco tarjetas */
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --button-shadow: rgba(0, 0, 0, 0.2);
+  --border-radius: 16px;
+  --font-primary: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: var(--font-primary);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+.titulouniversal{
+  font-weight: 600;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+button {
+  background: var(--primary-gradient);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px var(--button-shadow);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 12px var(--button-shadow);
+}
+
+.container {
+  max-width: 900px;
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card {
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 4px 8px var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 20px 0;
+  text-align: left;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--border-radius);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px var(--card-shadow);
+}
+
+.form {
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 4px 8px var(--card-shadow);
+  width: 300px;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--card-shadow);
+  border-radius: var(--border-radius);
+}
+
+.form button {
+  width: 100%;
+}
+
+.botones{
+  display: grid;
+  gap: 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
