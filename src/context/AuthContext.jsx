@@ -76,10 +76,12 @@ export function AuthProvider({ children }) {
       console.error("Error with Google login: ", error.message);
     }
   };
-
   const logout = async () => {
+    
     try {
+      
       const response = await signOut(auth);
+      window.location.href = "/login";
       console.log(response);
     } catch (error) {
       console.error("Error logging out: ", error.message);

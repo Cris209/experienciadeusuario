@@ -10,11 +10,9 @@ function FormsLogin() {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    if ([auth]){
+    if (auth){
       // Si el usuario ya está autenticado, redirígelo a MainPage
       navigate("/MainPage");
-    }else{
-      navigate("/login");
     }
   }, [auth, navigate])
 
