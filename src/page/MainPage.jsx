@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { db } from "../firebase/firebase.config.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { useAuth } from "../context/AuthContext"; // Importa el contexto de autenticación
@@ -10,7 +10,8 @@ const MainPage = () => {
   const { user, logout } = useAuth(); // Obtén el usuario y logout directamente del contexto
   const [comments, setComments] = useState([]);
   const [searchQuery, setSearchQuery] = useState(""); // Estado para la búsqueda
-
+  const [showHeader, setShowHeader] = useState(true); // Estado para mostrar/ocultar el header
+  const [lastScrollY, setLastScrollY] = useState(0); // Última posición del scroll
   const places = [
     { name: "Parque Fundidora", image: "https://escapadas.mexicodesconocido.com.mx/wp-content/uploads/2020/10/120238810_4103759992984031_8247658761315465946_o.jpg" },
     { name: "Cerro de la Silla", image: "https://somosdenuevoleon.com/wp-content/uploads/CERRO-DE-LA-SILLA-675x675.webp" },
@@ -77,16 +78,30 @@ const MainPage = () => {
     place.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      setShowHeader(false); // Oculta el header al deslizar hacia abajo
+    } else {
+      setShowHeader(true); // Muestra el header al deslizar hacia arriba
+    }
+    setLastScrollY(currentScrollY);
+  }, [lastScrollY]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]); // Ahora handleScroll es estable gracias a useCallback
+
   return (
     <div className="container">
-      {/* Contenedor de encabezado */}
-      <div className="header">
+      <div className={`header ${showHeader ? "visible" : "hidden"}`}>
         <h1 className="page-title">Bienvenido a Go?</h1>
-        <button onClick={logout} className="logout-button">
-          Cerrar Sesión
-        </button>
+        <button onClick={logout} className="logout-button">Cerrar Sesión</button>
       </div>
-
+      
       {/* Barra de búsqueda */}
       <div className="search-bar">
         <FontAwesomeIcon icon={faSearch} className="search-icon" />
