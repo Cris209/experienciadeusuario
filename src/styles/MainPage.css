@@ -101,6 +101,13 @@
   margin: 3px 0;
 }
 
+.nombre-usuario{
+  padding-top: 0%;
+  padding-bottom: 0%;
+  padding-left: 0%;
+  color:#757575;
+}
+
 /* Contenedor del encabezado */
 .header {
   top: 5%;
@@ -115,14 +122,6 @@
   z-index: 1000;
   position: fixed;
 }
-/**.header {
- 
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f8f9fa;
- 
-}**/
 
 .header.hidden {
   transform: translateY(-50%);
@@ -135,7 +134,7 @@
 .page-title {
   margin: 0;
   font-size: 1.8rem;
-  text-align: left;
+  text-align: center;
   flex: 1;
   padding-right: 15px;
 }
@@ -184,6 +183,9 @@
   font-size: 1.2rem;
 }
 
+.nombre-usuario-movil{
+  display: none;
+}
 
 /* Media Queries para dispositivos móviles */
 @media (max-width: 768px) {
@@ -205,9 +207,19 @@
 
 
 @media (max-width: 480px) {
-  .container{
-    padding-top: 35%;
+
+  .nombre-usuario{
+    display: none;
   }
+
+  .nombre-usuario-movil{
+    display: flex;
+  }
+
+  .container{
+    padding-top: 45%;
+  }
+
   .header {
     flex-direction: column;
     width: 50%;
@@ -215,17 +227,22 @@
 
   .search-bar{
     flex-direction: column;
-    width: 100%;
+    width: 75%;
+    margin-bottom: -8px; /* Ajustar el espaciado entre cartas y buscador en vista de movil */
   }
-
+  .search-icon {
+    margin-right: 5px;
+    font-size: 1.2rem;
+  }
   .card-container {
-    gap: 10px; 
-    width: 150%; /* Dos tarjetas por fila *//* Reduce el espaciado entre tarjetas */
+    gap: 0px;
+    width: 150%; 
   }
 
   .card {
     padding: 10px;
-    width: calc(100% / 2 - 20px); /* Dos tarjetas por fila */
+    width: calc(100% / 2 - 20px);
+    margin-bottom: 0.5% /* Ajustar el espaciado entre cartas en vista de movil */
   }
 
   .card-title {

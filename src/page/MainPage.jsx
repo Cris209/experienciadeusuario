@@ -97,9 +97,14 @@ const MainPage = () => {
 
   return (
     <div className="container">
+      
       <div className={`header ${showHeader ? "visible" : "hidden"}`}>
+      {/* Mostrar el nombre o correo del usuario autenticado */}
+      <p className="nombre-usuario">Que tal!!, {user.email}</p>
         <h1 className="page-title">Bienvenido a Go?</h1>
         <button onClick={logout} className="logout-button">Cerrar Sesión</button>
+        {/* Mostrar el nombre o correo del usuario autenticado para movil*/}
+        <p className="nombre-usuario-movil">{user.email}</p>
       </div>
       
       {/* Barra de búsqueda */}
@@ -113,7 +118,7 @@ const MainPage = () => {
           className="search-input"
         />
       </div>
-
+      
       <div className="card-container">
       {filteredPlaces.map((place) => {
           const commentId = `${place.name}-comment`;
