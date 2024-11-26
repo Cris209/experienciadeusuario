@@ -92,6 +92,7 @@ export function AuthProvider({ children }) {
   if (loading) {
     return <div>Loading...</div>;
   }
+  
 
   return (
     <authContext.Provider

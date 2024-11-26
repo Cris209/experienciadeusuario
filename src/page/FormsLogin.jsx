@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/styles.css";
@@ -8,13 +8,6 @@ function FormsLogin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  useEffect(() => {
-    if (auth){
-      // Si el usuario ya está autenticado, redirígelo a MainPage
-      navigate("/MainPage");
-    }
-  }, [auth, navigate])
 
   const handleLogin = async (e) => {
     e.preventDefault();

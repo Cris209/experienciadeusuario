@@ -6,18 +6,27 @@ import { AuthProvider, useAuth } from "./context/AuthContext";
 import "./styles/styles.css";
 
 function ProtectedRoute({ children }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+
   return user ? children : <Navigate to="/login" />;
+}
+
+function PublicRoute({ children }) {
+  const { user } = useAuth();
+  return user ? <Navigate to="/MainPage" /> : children;
 }
 
 function App() {
   return (
     <AuthProvider>
       <Router>
-        
         <Routes>
-          <Route path="/login" element={<FormsLogin />} />
-          <Route path="/register" element={<FormsRegister />} />
+          <Route path="/login" element={<PublicRoute><FormsLogin /></PublicRoute>} />
+          <Route path="/register" element={<PublicRoute><FormsRegister /></PublicRoute>} />
           <Route
             path="/MainPage"
             element={
